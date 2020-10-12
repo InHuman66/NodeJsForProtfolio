@@ -53,7 +53,8 @@ app.post('/sendMassage', async (req, res) => {
 <p><strong>message:</strong>${message}</p>
 </div>`
     });
-    res.send('ok')
+    res.end('ok')
+
 })
 
 app.listen(port, () => {
