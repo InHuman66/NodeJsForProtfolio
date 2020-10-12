@@ -30,10 +30,12 @@ let transporter = nodemailer.createTransport({
 });
 
 app.get('/',(req,res)=>{
+    console.log('world get')
     res.send('Hello World')
 })
 
 app.post('/sendMassage', async (req, res) => {
+    console.log('send Message')
     let {name, email, message}= req.body
     // create reusable transporter object using the default SMTP transport
 
