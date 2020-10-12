@@ -3,11 +3,12 @@ const nodemailer = require("nodemailer");
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express()
-app.use(cors());
 const port = process.env.PORT || 9010
 
 let smptp_login = process.env.SMPTP_LOGIN ||'---'
 let smptp_password = process.env.SMPTP_PASSWORD ||'---'
+app.use(cors());
+
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", '*');
     res.header("Access-Control-Allow-Credentials", true);
