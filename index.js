@@ -4,7 +4,10 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express()
 app.use(cors());
-const port = 3000
+const port = process.env.PORT || 9010
+
+let smptp_login = process.env.SMPTP_LOGIN ||'---'
+let smptp_password = process.env.SMPTP_PASSWORD ||'---'
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -14,8 +17,8 @@ let transporter = nodemailer.createTransport({
     port: 25,
     secure: false, // true for 465, false for other ports
     auth: {
-        user: 'olexandr.kk@gmail.com', // generated ethereal user
-        pass: '210130Kj', // generated ethereal password
+        user: smptp_login , // generated ethereal user
+        pass: smptp_password, // generated ethereal password
     },
 });
 
