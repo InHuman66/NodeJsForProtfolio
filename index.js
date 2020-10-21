@@ -25,8 +25,8 @@ let transporter = nodemailer.createTransport({
     port: 25,
     secure: false, // true for 465, false for other ports
     auth: {
-        user: 'olexandr.kk@gmail.com' , // generated ethereal user
-        pass: '210130Kj', // generated ethereal password
+        user: smptp_login, // generated ethereal user
+        pass: smptp_password, // generated ethereal password
     },
 });
 
@@ -53,7 +53,7 @@ app.post('/sendMassage', async (req, res) => {
 <p><strong>message:</strong>${message}</p>
 </div>`
     });
-    res.end('ok')
+    res.send('ok')
 
 })
 
